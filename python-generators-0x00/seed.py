@@ -1,13 +1,14 @@
 import mysql.connector
 import csv
 import uuid
+from db_password import db_password
 
 def connect_db():
     try:
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="********"
+            password=db_password
         )
     except mysql.connector.Error as err:
         print(f"Error: {err}")
@@ -23,7 +24,7 @@ def connect_to_prodev():
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="********",
+            password=db_password,
             database="ALX_prodev"
         )
     except mysql.connector.Error as err:
