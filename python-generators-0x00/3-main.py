@@ -1,0 +1,12 @@
+import sys
+lazy_paginator = __import__('2-lazy_paginate').lazy_paginate
+
+
+try:
+    for page in lazy_paginator(100):
+        for user in page:
+            print(user)
+        print("\t\t\t\t========== End of Page ========\n\n\n\n\n\n")
+
+except BrokenPipeError:
+    sys.stderr.close()
