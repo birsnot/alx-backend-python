@@ -32,3 +32,18 @@ You can run all the tests with:
 
 ```bash
 python3 -m unittest discover
+```
+
+Or to run a specific test file:
+
+```bash
+python3 -m unittest test_utils.py
+```
+
+## Installation
+
+Install test dependencies with:
+
+```bash
+pip install parameterized
+```
