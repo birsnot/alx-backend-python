@@ -3,6 +3,8 @@ from .models import User, Conversation, Message
 
 
 class UserSerializer(serializers.ModelSerializer):
+    phone_number = serializers.CharField()
+
     class Meta:
         model = User
         fields = [
@@ -16,6 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     sender = UserSerializer(read_only=True)
+    message_preview = serializers.SerializerMethodField()
 
     class Meta:
         model = Message
@@ -23,8 +26,12 @@ class MessageSerializer(serializers.ModelSerializer):
             'message_id',
             'sender',
             'message_body',
+            'message_preview',
             'sent_at',
         ]
+
+    def get_message_preview(self, obj):
+        return obj.message_body[:30] + "..." if len(obj.message_body) > 30 else obj.message_body
 
 
 class ConversationSerializer(serializers.ModelSerializer):
@@ -39,3 +46,8 @@ class ConversationSerializer(serializers.ModelSerializer):
             'messages',
             'created_at',
         ]
+
+    def validate(self, data):
+        if not data.get('participants'):
+            raise serializers.ValidationError("A conversation must have at least one participant.")
+        return data
