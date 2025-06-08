@@ -22,11 +22,10 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
 
-
-# Custom User model
+    
 class User(AbstractUser):
     user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    username = None  # remove username field
+    username = None
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=20)
 
@@ -37,6 +36,11 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+    @property
+    def id(self):
+        return self.user_id
+
 
 
 # Conversation model
