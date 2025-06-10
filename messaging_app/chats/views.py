@@ -7,9 +7,15 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from .filters import MessageFilter
 from .pagination import MessagePagination
-from .models import Conversation, Message
-from .serializers import ConversationSerializer, MessageSerializer
+from .models import Conversation, Message, User
+from .serializers import ConversationSerializer, MessageSerializer, UserSerializer
 from .permissions import IsParticipantOfConversation
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'user_id'
 
 class ConversationViewSet(viewsets.ModelViewSet):
     queryset = Conversation.objects.all()
@@ -18,7 +24,8 @@ class ConversationViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         conversation = serializer.save()
-        conversation.participants.add(self.request.user)
+        if self.request.user not in conversation.participants.all():
+            conversation.participants.add(self.request.user)
 
 
 class MessageViewSet(viewsets.ModelViewSet):

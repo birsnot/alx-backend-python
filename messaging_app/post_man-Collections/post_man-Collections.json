@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "a2a42418-f42e-4549-bd8f-c6ea3cb9bfbb",
+		"name": "massaging_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37457894"
+	},
+	"item": [
+		{
+			"name": "Get JWT Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NTQ5MzYyLCJpYXQiOjE3NDk0NjI5NjIsImp0aSI6IjgyMTYzNTlkZjc5ZTQzNjE5Y2M5MmMwNjEyMDNkZmI5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.5ycCq16VzSL8f7Taj7Y7B49sXWhY2Y3DJQvPzOF0VI4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"birsnot@gmail.com\",\r\n  \"password\": \"password\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Conversation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjI1ODA2LCJpYXQiOjE3NDk1Mzk0MDYsImp0aSI6IjIyMzVjOThmMzQ3NjQ0MGVhMTA5M2VlNTQ3MzE4ODc5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.vGBcmPnHZw38GiplJzjF6NR6b2ISBVz0dryIIKGqolI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"participants\": [\"19839962-2453-42bc-9f77-e025c2969478\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/conversations/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send a Message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjI1ODA2LCJpYXQiOjE3NDk1Mzk0MDYsImp0aSI6IjIyMzVjOThmMzQ3NjQ0MGVhMTA5M2VlNTQ3MzE4ODc5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.vGBcmPnHZw38GiplJzjF6NR6b2ISBVz0dryIIKGqolI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"message_body\": \"Hi everyone! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora provident error earum corrupti aut! Maiores, modi! Incidunt est voluptatum laborum temporibus velit unde quas doloremque, nam officiis assumenda maxime enim.\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/conversations/2bdd9e7d-f37d-4253-a6a6-8354b58467c6/messages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						"2bdd9e7d-f37d-4253-a6a6-8354b58467c6",
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjI1ODA2LCJpYXQiOjE3NDk1Mzk0MDYsImp0aSI6IjIyMzVjOThmMzQ3NjQ0MGVhMTA5M2VlNTQ3MzE4ODc5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.vGBcmPnHZw38GiplJzjF6NR6b2ISBVz0dryIIKGqolI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/conversations/2bdd9e7d-f37d-4253-a6a6-8354b58467c6/messages/?page=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						"2bdd9e7d-f37d-4253-a6a6-8354b58467c6",
+						"messages",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unauthorized Access",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/conversations/2bdd9e7d-f37d-4253-a6a6-8354b58467c6/messages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						"2bdd9e7d-f37d-4253-a6a6-8354b58467c6",
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
