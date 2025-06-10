@@ -13,7 +13,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NTQ5MzYyLCJpYXQiOjE3NDk0NjI5NjIsImp0aSI6IjgyMTYzNTlkZjc5ZTQzNjE5Y2M5MmMwNjEyMDNkZmI5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.5ycCq16VzSL8f7Taj7Y7B49sXWhY2Y3DJQvPzOF0VI4",
+						"value": "Bearer <access_token>",
 						"type": "text"
 					},
 					{
@@ -52,7 +52,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjI1ODA2LCJpYXQiOjE3NDk1Mzk0MDYsImp0aSI6IjIyMzVjOThmMzQ3NjQ0MGVhMTA5M2VlNTQ3MzE4ODc5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.vGBcmPnHZw38GiplJzjF6NR6b2ISBVz0dryIIKGqolI",
+						"value": "Bearer <access_token>",
 						"type": "text"
 					},
 					{
@@ -63,7 +63,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"participants\": [\"19839962-2453-42bc-9f77-e025c2969478\"]\r\n}",
+					"raw": "{\r\n    \"participants\": [\"<user_id>\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -96,7 +96,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjI1ODA2LCJpYXQiOjE3NDk1Mzk0MDYsImp0aSI6IjIyMzVjOThmMzQ3NjQ0MGVhMTA5M2VlNTQ3MzE4ODc5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.vGBcmPnHZw38GiplJzjF6NR6b2ISBVz0dryIIKGqolI",
+						"value": "Bearer <access_token>",
 						"type": "text"
 					},
 					{
@@ -110,7 +110,7 @@
 					"raw": "{\r\n  \"message_body\": \"Hi everyone! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora provident error earum corrupti aut! Maiores, modi! Incidunt est voluptatum laborum temporibus velit unde quas doloremque, nam officiis assumenda maxime enim.\"\r\n}\r\n"
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/conversations/2bdd9e7d-f37d-4253-a6a6-8354b58467c6/messages/",
+					"raw": "http://127.0.0.1:8000/api/conversations/<conversation_id>/messages/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -122,7 +122,7 @@
 					"path": [
 						"api",
 						"conversations",
-						"2bdd9e7d-f37d-4253-a6a6-8354b58467c6",
+						"<conversation_id>",
 						"messages",
 						""
 					]
@@ -137,7 +137,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjI1ODA2LCJpYXQiOjE3NDk1Mzk0MDYsImp0aSI6IjIyMzVjOThmMzQ3NjQ0MGVhMTA5M2VlNTQ3MzE4ODc5IiwidXNlcl9pZCI6IjE5ODM5OTYyLTI0NTMtNDJiYy05Zjc3LWUwMjVjMjk2OTQ3OCIsImVtYWlsIjoiYmlyc25vdEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTmFyZG9zIiwibGFzdF9uYW1lIjoiV2VoYWJlIn0.vGBcmPnHZw38GiplJzjF6NR6b2ISBVz0dryIIKGqolI",
+						"value": "Bearer <access_token>",
 						"type": "text"
 					},
 					{
@@ -147,7 +147,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/conversations/2bdd9e7d-f37d-4253-a6a6-8354b58467c6/messages/?page=2",
+					"raw": "http://127.0.0.1:8000/api/conversations/<conversation_id>/messages/?page=2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -159,7 +159,7 @@
 					"path": [
 						"api",
 						"conversations",
-						"2bdd9e7d-f37d-4253-a6a6-8354b58467c6",
+						"<conversation_id>",
 						"messages",
 						""
 					],
@@ -179,7 +179,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/conversations/2bdd9e7d-f37d-4253-a6a6-8354b58467c6/messages/",
+					"raw": "http://127.0.0.1:8000/api/conversations/<conversation_id>/messages/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -191,7 +191,7 @@
 					"path": [
 						"api",
 						"conversations",
-						"2bdd9e7d-f37d-4253-a6a6-8354b58467c6",
+						"<conversation_id>",
 						"messages",
 						""
 					]
