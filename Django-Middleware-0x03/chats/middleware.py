@@ -66,3 +66,20 @@ class OffensiveLanguageMiddleware:
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+
+
+class RolePermissionMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        # Only restrict specific sensitive paths (e.g., /admin/)
+        if request.path.find('/admin/') != -1:
+            user = request.user
+            # if not user.is_authenticated:
+            #     return HttpResponseForbidden("Authentication required.")
+
+            if not user.is_superuser:
+                return HttpResponseForbidden("Access denied: Admin role required.")
+
+        return self.get_response(request)
