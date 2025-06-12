@@ -17,6 +17,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     lookup_field = 'user_id'
 
+
 class ConversationViewSet(viewsets.ModelViewSet):
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
@@ -38,20 +39,24 @@ class MessageViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         conversation_id = self.kwargs.get('conversation_pk')
         try:
-            conversation = Conversation.objects.get(conversation_id=conversation_id)
+            conversation = Conversation.objects.get(
+                conversation_id=conversation_id)
         except Conversation.DoesNotExist:
             return Message.objects.none()
 
         if self.request.user not in conversation.participants.all():
-            raise PermissionDenied(detail="You are not a participant of this conversation", code=status.HTTP_403_FORBIDDEN)
+            raise PermissionDenied(
+                detail="You are not a participant of this conversation", code=status.HTTP_403_FORBIDDEN)
 
         return Message.objects.filter(conversation=conversation)
 
     def perform_create(self, serializer):
         conversation_id = self.kwargs.get('conversation_pk')
-        conversation = Conversation.objects.get(conversation_id=conversation_id)
+        conversation = Conversation.objects.get(
+            conversation_id=conversation_id)
 
         if self.request.user not in conversation.participants.all():
-            raise PermissionDenied(detail="You are not a participant of this conversation", code=status.HTTP_403_FORBIDDEN)
+            raise PermissionDenied(
+                detail="You are not a participant of this conversation", code=status.HTTP_403_FORBIDDEN)
 
         serializer.save(sender=self.request.user, conversation=conversation)
