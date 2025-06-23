@@ -1,25 +1,16 @@
-# messaging_app/Dockerfile
-
-# Use official Python base image
 FROM python:3.10
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Set working directory in the container
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-# Copy project files
 COPY . .
 
-# Expose the port
+RUN pip install --upgrade pip
+RUN pip install -r messaging_app/requirements.txt
+
 EXPOSE 8000
 
-# Run the app using Django dev server
+# manage.py doesn't know "-p"
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
